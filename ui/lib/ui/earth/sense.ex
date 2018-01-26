@@ -1,3 +1,0 @@
-defmodule Sense do
-
-end

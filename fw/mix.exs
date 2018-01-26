@@ -83,6 +83,7 @@ defmodule Fw.Mixfile do
   def aliases(_target) do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],
      "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
+     |> Nerves.Bootstrap.add_aliases()
   end
 
 end

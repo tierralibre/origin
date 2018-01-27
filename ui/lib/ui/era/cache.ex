@@ -1,6 +1,6 @@
 defmodule Era.Cache do
     def start_link() do
-      IO.puts("Starting to-do cache")
+      IO.puts("Starting ERA cache")
       DynamicSupervisor.start_link(name: __MODULE__, strategy: :one_for_one)
     end
   

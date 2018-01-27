@@ -1,4 +1,4 @@
-defmodule Ark.DatabaseWorker do
+defmodule Era.DatabaseWorker do
     use GenServer
   
     def start_link({db_folder, worker_id}) do
@@ -20,7 +20,7 @@ defmodule Ark.DatabaseWorker do
     end
   
     defp via_tuple(worker_id) do
-      Ark.ProcessRegistry.via_tuple({__MODULE__, worker_id})
+      Era.ProcessRegistry.via_tuple({__MODULE__, worker_id})
     end
   
     @impl GenServer

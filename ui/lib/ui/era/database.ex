@@ -1,4 +1,4 @@
-defmodule Ark.Database do
+defmodule Era.Database do
     @pool_size 3
     @db_folder "/root/persist"
   
@@ -10,7 +10,7 @@ defmodule Ark.Database do
     end
   
     defp worker_spec(worker_id) do
-      default_worker_spec = {Ark.DatabaseWorker, {@db_folder, worker_id}}
+      default_worker_spec = {Era.DatabaseWorker, {@db_folder, worker_id}}
       Supervisor.child_spec(default_worker_spec, id: worker_id)
     end
   
@@ -25,13 +25,13 @@ defmodule Ark.Database do
     def store(key, data) do
       key
       |> choose_worker()
-      |> Ark.DatabaseWorker.store(key, data)
+      |> Era.DatabaseWorker.store(key, data)
     end
   
     def get(key) do
       key
       |> choose_worker()
-      |> Ark.DatabaseWorker.get(key)
+      |> Era.DatabaseWorker.get(key)
     end
   
     defp choose_worker(key) do

@@ -1,10 +1,10 @@
-defmodule Ark.System do
+defmodule Era.System do
     def start_link do
       Supervisor.start_link(
         [
-          Ark.ProcessRegistry,
-          Ark.Database,
-          Ark.Cache
+          Era.ProcessRegistry,
+          Era.Database,
+          Era.Cache
         ],
         strategy: :one_for_one
       )

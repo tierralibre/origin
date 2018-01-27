@@ -1,4 +1,4 @@
-defmodule Ark.Cache do
+defmodule Era.Cache do
     def start_link() do
       IO.puts("Starting to-do cache")
       DynamicSupervisor.start_link(name: __MODULE__, strategy: :one_for_one)
@@ -12,14 +12,14 @@ defmodule Ark.Cache do
       }
     end
   
-    def server_process(ark_list_name) do
-      case start_child(ark_list_name) do
+    def server_process(era_list_name) do
+      case start_child(era_list_name) do
         {:ok, pid} -> pid
         {:error, {:already_started, pid}} -> pid
       end
     end
   
-    defp start_child(ark_list_name) do
-      DynamicSupervisor.start_child(__MODULE__, {Ark.Server, ark_list_name})
+    defp start_child(era_list_name) do
+      DynamicSupervisor.start_child(__MODULE__, {Era.Server, era_list_name})
     end
   end

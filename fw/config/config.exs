@@ -18,7 +18,7 @@ use Mix.Config
 # involved with firmware updates.
 config :bootloader,
   init: [:nerves_runtime, :nerves_init_gadget],
-  app: Mix.Project.config[:app]
+  app: Mix.Project.config()[:app]
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
@@ -26,8 +26,8 @@ config :bootloader,
 
 config :nerves_firmware_ssh,
   authorized_keys: [
-         File.read!(Path.join(System.user_home!, ".ssh/id_rsa.pub"))
-     ]
+    File.read!(Path.join(System.user_home!(), ".ssh/id_rsa.pub"))
+  ]
 
 config :nerves_init_gadget,
   ifname: "wlan0",
@@ -36,8 +36,7 @@ config :nerves_init_gadget,
   node_name: nil,
   node_host: :mdns_domain
 
-config :nerves_network,
-  regulatory_domain: "ES"
+config :nerves_network, regulatory_domain: "ES"
 
 key_mgmt = System.get_env("NERVES_NETWORK_KEY_MGMT") || "WPA-PSK"
 
@@ -50,18 +49,22 @@ config :nerves_network, :default,
   eth0: [
     ipv4_address_method: :dhcp
   ]
-  
+
 config :ui, UiWeb.Endpoint,
   http: [port: 80],
   url: [host: "origin.local", port: 80],
-  #url: [host: "192.168.0.102", port: 80],
+  # url: [host: "192.168.0.102", port: 80],
   secret_key_base: "6ccqlxld2X6JaYZzAXdvjLfsrI9d22Wk6mRJjlm2M39kojzcvZqmSzbVMzHIBVZJ",
   root: Path.dirname(__DIR__),
   server: true,
   render_errors: [accepts: ~w(html json)],
-  pubsub: [name: Ui.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Ui.PubSub, adapter: Phoenix.PubSub.PG2]
 
-  
-    
+# config :ui, Ui.Repo,
+#   adapter: Sqlite.Ecto2,
+#   database: "/root/#{Mix.env()}.sqlite3"
+#   pool: 5
+
+# config :ui, ecto_repos: [Ui.Repo]
+
 # import_config "#{Mix.Project.config[:target]}.exs"

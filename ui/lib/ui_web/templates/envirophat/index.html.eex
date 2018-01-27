@@ -9,12 +9,12 @@
   </div>
   <div class="col-md-8">
     <h2>Raw</h2>
-   <p><%= @result %> </p>
+   <p><%= read_sensors() %>  </p>
   </div>
   <div  class="col-md-4">
-    <h2>Who’s Online</h2>
+    <h2>Temp Raw String:</h2>
     <ul id="UserList" class="list-unstyled">
-      <li>Loading online users...</li>
+      <p><%= read_sensors() %> </p>
     </ul>
   </div>
 </div>

@@ -7,7 +7,8 @@ defmodule Ui.Python do
         path = [
              :code.priv_dir(:ui), 
              "python"
-        ]|> Path.join()
+        ]|> Path.join() 
+        |> IO.inspect()
         
         {:ok, pid} = :python.start([
            {:python_path, to_charlist(path)}

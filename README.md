@@ -74,6 +74,10 @@ screen /dev/tty.usbmodem* 115200
 ```
 
 configuracion en ENV de la terminal:
+
+NERVES_NETWORK_SSID = wifi ssid
+NERVES_NETWORK_PSK = clave vifi
+
 ```
 export MIX_TARGET=origin_system
 export NERVES_NETWORK_SSID=the_network_name
@@ -133,7 +137,6 @@ nano
 
 ```
 scanpypi
-https://github.com/maximeh/buildroot/blob/master/docs/manual/adding-packages-python.txt
 
 ```
 donde
@@ -160,15 +163,11 @@ customizar con menuconfig
 
 
 
-
-
-
-
-
-# then at the nerves_shell prompt
-make menuconfig
+## Enlaces
 
 https://nerves.build/posts/nerves-0-11
+https://github.com/maximeh/buildroot/blob/master/docs/manual/adding-packages-python.txt
+
 
 
 

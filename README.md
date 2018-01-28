@@ -9,6 +9,9 @@ Un GenServer que guarda datos en disco y los recupera.
 
 Primera iteracion.
 
+![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/nerves_buildroot.gif)
+
+
 La idea es poder usar los canales para subscribirse.
 
 Y usar la parte de datos para crear un sistema distribuido, guardando los datos en bloques entrelazados, inspirado en Archain.
@@ -158,6 +161,10 @@ make savedefconfig
 ```
 
 customizar con menuconfig
+
+![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/nerves_buildroot.gif)
+
+## Screen gif
 
 ![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/nerves_buildroot.gif)
 

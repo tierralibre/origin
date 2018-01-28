@@ -169,8 +169,6 @@ customizar con menuconfig
 
 ## Screen gif
 
-![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/nerves_buildroot.gif)
-
 ![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/origin_ui_phoenix_controller_view.gif)
 
 

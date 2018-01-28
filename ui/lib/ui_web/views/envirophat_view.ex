@@ -30,8 +30,8 @@ defmodule UiWeb.EnvirophatView do
         |> to_string()
     end
 
-   def envirophat_raw_data({id_1, raw_1},{id_2, raw_2}) do
-    "Raw_1: #{inspect(raw_1)} Raw_2: #{inspect(raw_2)}"
+   def envirophat_raw_data(%{raw: raw}) do
+    "Raw: #{inspect(raw)}"
    end
 
    def envirophat_raw_data(other) do

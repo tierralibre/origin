@@ -156,7 +156,7 @@ make savedefconfig
 
 customizar con menuconfig
 
-![](https://github.com/tierralibre/origin/docs/media/)
+![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/nerves_buildroot.gif)
 
 
 

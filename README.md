@@ -30,7 +30,8 @@ Cada nodo se actualiza por el aire via wifi, conectado con una clave SSH.
 
 Tambien tiene un puerto usb donde se puede acceder a la termirnal iEx, que permite ejecutar codigo y ver el log del sistema en tiempo real.
 
-##Estructura
+## Estructura
+
 fw -> firmware de nerves
 origin_system -> sistema pi zero w con python y python-envirophat
 ui -> applicacion y interface web. http://phoenixframework.org
@@ -64,7 +65,110 @@ Se encarga de guardar y leer el estado de server.ex en disco. (Estado = bloque)
 Era.Cache
 Guarda un grafico de server.ex en memoria, supervisado.
 
+# Como
 
+conectar por usb en mac. (linux y windows es una conexios usb uart via terminal)
+
+```
+screen /dev/tty.usbmodem* 115200
+```
+
+configuracion en ENV de la terminal:
+```
+export MIX_TARGET=origin_system
+export NERVES_NETWORK_SSID=the_network_name
+export NERVES_NETWORK_PSK=the_network_password
+```
+
+desde origin/fw/
+```
+mix deps.get
+mix nerves.release.init
+mix firmware
+mix firmware.burn
+```
+
+para compilar y hacer push del firmware.
+esta configurado con la clave ssh en:
+.ssh/id_rsa.pub
+configuracion en: /fw/config/config.exs
+
+Por el aire
+```
+mix firmware
+mix firmware.push origin.local
+```
+
+Con tarjeta micro SD en el ordenador
+```
+mix firmware
+mix firmware.burn
+```
+
+para crear nuestro propio sistema mini linux con erlang, elixir y python.
+
+```
+export MIX_TARGET=origin_system
+mix deps.get
+mix nerves.system.shell
+
+make menuconfig
+make savedefconfig
+
+```
+
+para instalar paquetes python propiosque estan en https://pypi.python.org/pypi
+
+
+desde origin/fw
+
+```
+mix nerves.system.shell
+apt-get update
+apt-get install python-setuptools
+cd /nerves/env/platform/buildroot
+utils/scanpypi envirophat -o package
+apt-get install nano
+nano 
+
+```
+scanpypi
+https://github.com/maximeh/buildroot/blob/master/docs/manual/adding-packages-python.txt
+
+```
+donde
+source "package/python-enum34/Config.in"
+
+nuevo
+source "package/python-envirophat/Config.in"
+
+final
+source "package/python-enum34/Config.in"
+source "package/python-envirophat/Config.in"
+```
+
+volver ha /nerves/build
+```
+cd /nerves/build
+make menuconfig
+```
+
+customizar con menuconfig
+
+estoy crea una image que se podra bajar en breve
+
+
+
+
+
+
+
+
+
+# then at the nerves_shell prompt
+make menuconfig
+
+https://nerves.build/posts/nerves-0-11
 
 
 

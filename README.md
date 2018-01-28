@@ -151,12 +151,12 @@ volver ha /nerves/build
 ```
 cd /nerves/build
 make menuconfig
+make savedefconfig
 ```
 
 customizar con menuconfig
 
-estoy crea una image que se podra bajar en breve
-
+![](https://github.com/tierralibre/origin/docs/media/)
 
 
 

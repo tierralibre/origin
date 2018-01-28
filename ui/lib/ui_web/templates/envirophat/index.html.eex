@@ -8,9 +8,10 @@
     Sensor Data:
   </div>
   <div class="col-md-8">
-    <h2>Raw</h2>
-   <p><%= read_sensors() %>  </p>
-  </div>
+    <%= for result <- @results do %>
+    <p>Result</p>
+    <%= envirophat_raw_data(result) %>
+  <% end %>
   <div  class="col-md-4">
     <h2>Temp Raw String:</h2>
     <ul id="UserList" class="list-unstyled">

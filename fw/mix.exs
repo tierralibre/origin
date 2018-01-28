@@ -38,7 +38,7 @@ defmodule Fw.Mixfile do
   end
   def application(_target) do
     [mod: {Fw.Application, []},
-     extra_applications: [:logger]]
+     extra_applications: [:logger, :nerves_ntp]]
   end
 
   # Dependencies can be Hex packages:
@@ -63,7 +63,8 @@ defmodule Fw.Mixfile do
     [
       {:bootloader, "~> 0.1"},
       {:nerves_runtime, "~> 0.4"},
-      {:nerves_init_gadget, "~> 0.2"}
+      {:nerves_init_gadget, "~> 0.2"},
+      {:nerves_ntp, "~> 0.1.0"}
     ] ++ system(target)
   end
 

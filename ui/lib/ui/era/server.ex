@@ -9,6 +9,10 @@ defmodule Era.Server do
       GenServer.cast(era_server, {:add_entry, new_entry})
     end
   
+    def all_entries(era_server) do
+      GenServer.call(era_server, :all_entries)
+    end
+
     def entries(era_server, date) do
       GenServer.call(era_server, {:entries, date})
     end
@@ -35,6 +39,15 @@ defmodule Era.Server do
       {
         :reply,
         Era.List.entries(era_list, date),
+        {name, era_list}
+      }
+    end
+
+    @impl GenServer
+    def handle_call(:all_entries, _, {name, era_list}) do
+      {
+        :reply,
+        Era.List.entries(era_list),
         {name, era_list}
       }
     end

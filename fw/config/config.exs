@@ -68,3 +68,14 @@ config :ui, UiWeb.Endpoint,
 # config :ui, ecto_repos: [Ui.Repo]
 
 # import_config "#{Mix.Project.config[:target]}.exs"
+
+# ntpd binary to use
+config :nerves_ntp, :ntpd, "/usr/sbin/ntpd"
+ 
+# servers to sync time from
+config :nerves_ntp, :servers, [
+    "0.pool.ntp.org",
+    "1.pool.ntp.org", 
+    "2.pool.ntp.org", 
+    "3.pool.ntp.org"
+  ]

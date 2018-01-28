@@ -19,6 +19,11 @@ defmodule Era.List do
   
       %Era.List{era_list | entries: new_entries, auto_id: era_list.auto_id + 1}
     end
+
+    def entries(era_list) do
+      era_list.entries
+      |> Enum.map(fn {_, entry} -> entry end)
+    end
   
     def entries(era_list, date) do
       era_list.entries

@@ -18,6 +18,7 @@ defmodule UiWeb.Router do
 
     get "/", PageController, :index
     get "/sensors", EnvirophatController, :index
+    get "/shutdown", SystemController, :index
   end
 
   # Other scopes may use custom stacks.

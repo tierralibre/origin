@@ -9,7 +9,7 @@ Un GenServer que guarda datos en disco y los recupera.
 
 Primera iteracion.
 
-![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/nerves_buildroot.gif)
+![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/origin_ui_phoenix_controller_view.gif)
 
 
 La idea es poder usar los canales para subscribirse.
@@ -36,8 +36,12 @@ Tambien tiene un puerto usb donde se puede acceder a la termirnal iEx, que permi
 ## Estructura
 
 fw -> firmware de nerves
+![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/origin_fw.gif)
+
 origin_system -> sistema pi zero w con python y python-envirophat
 ui -> applicacion y interface web. http://phoenixframework.org
+
+![](https://raw.githubusercontent.com/tierralibre/origin/master/docs/media/phoenix_origin_ui.gif)
 
 ui/lib/application.ex
 

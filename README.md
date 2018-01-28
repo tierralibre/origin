@@ -33,6 +33,12 @@ Cada nodo se actualiza por el aire via wifi, conectado con una clave SSH.
 
 Tambien tiene un puerto usb donde se puede acceder a la termirnal iEx, que permite ejecutar codigo y ver el log del sistema en tiempo real.
 
+conectar por usb en mac. (linux y windows es una conexios usb uart via terminal)
+
+```
+screen /dev/tty.usbmodem* 115200
+```
+
 ## Estructura
 
 fw -> firmware de nerves
@@ -73,13 +79,6 @@ Era.Cache
 Guarda un grafico de server.ex en memoria, supervisado.
 
 # Como
-
-conectar por usb en mac. (linux y windows es una conexios usb uart via terminal)
-
-```
-screen /dev/tty.usbmodem* 115200
-```
-
 configuracion en ENV de la terminal:
 
 NERVES_NETWORK_SSID = wifi ssid
